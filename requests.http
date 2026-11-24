@@ -1,0 +1,41 @@
+### Professor com perfil (OneToOne)
+POST http://localhost:8080/professores
+Content-Type: application/json
+
+{"nome":"Ana Souza","email":"ana@instituicao.edu.br","perfil":{"especializacao":"Banco de Dados","telefone":"(71) 98888-1111","curriculo":"Mestre em Ciência da Computação"}}
+
+### Listar professores
+GET http://localhost:8080/professores
+
+### Curso
+POST http://localhost:8080/cursos
+Content-Type: application/json
+
+{"nome":"Redes de Computadores"}
+
+### Disciplina vinculada a um curso (OneToMany / ManyToOne)
+POST http://localhost:8080/disciplinas
+Content-Type: application/json
+
+{"nome":"Roteamento","cursoId":2}
+
+### Disciplinas do curso
+GET http://localhost:8080/cursos/1
+
+### Aluno
+POST http://localhost:8080/alunos
+Content-Type: application/json
+
+{"nome":"Lucas","email":"lucas@email.com"}
+
+### Matricular aluno em disciplina (ManyToMany)
+POST http://localhost:8080/alunos/4/disciplinas/1
+
+### Disciplinas do aluno
+GET http://localhost:8080/alunos/4/disciplinas
+
+### Alunos da disciplina
+GET http://localhost:8080/disciplinas/1/alunos
+
+### Desmatricular
+DELETE http://localhost:8080/alunos/4/disciplinas/1
